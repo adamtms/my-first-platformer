@@ -7,7 +7,6 @@ const JUMP_VELOCITY = -400.0
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_area: Area2D = $Area2D
 
-
 func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.

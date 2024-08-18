@@ -1,6 +1,7 @@
-[gd_scene load_steps=41 format=3 uid="uid://dv5vtxfrkvsxy"]
+[gd_scene load_steps=42 format=3 uid="uid://dv5vtxfrkvsxy"]
 
 [ext_resource type="Texture2D" uid="uid://dpldlhjrjkuur" path="res://resources/knight.png" id="1_1mqid"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="2_d4vup"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlqas"]
 atlas = ExtResource("1_1mqid")
@@ -308,6 +309,7 @@ limit_right = 3840
 limit_bottom = 1024
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
+script = ExtResource("2_d4vup")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 128

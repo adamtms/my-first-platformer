@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://c1p7p33isgk15"]
+[gd_scene load_steps=11 format=4 uid="uid://c1p7p33isgk15"]
 
 [ext_resource type="Texture2D" uid="uid://o75qagtnvdmj" path="res://resources/world_tileset.png" id="1_7oijr"]
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_hv3h2"]
 [ext_resource type="PackedScene" uid="uid://dv5vtxfrkvsxy" path="res://scenes/knight.tscn" id="2_imsmx"]
 [ext_resource type="Script" path="res://scripts/knight.gd" id="3_43ywa"]
-[ext_resource type="Script" path="res://scripts/label_time.gd" id="4_wuqbc"]
 [ext_resource type="PackedScene" uid="uid://dnlqm7e5jx34c" path="res://scenes/coin.tscn" id="5_5jh0n"]
-[ext_resource type="Script" path="res://scripts/label_coins.gd" id="6_mpid5"]
+[ext_resource type="PackedScene" uid="uid://dsk6t3wyhojyd" path="res://scenes/gameUI.tscn" id="5_o4tvb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tmtjc"]
 texture = ExtResource("1_7oijr")
@@ -193,11 +193,8 @@ physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetScenesCollectionSource_rgdhe")
 
-[sub_resource type="LabelSettings" id="LabelSettings_xwp4t"]
-font_size = 50
-font_color = Color(0, 0, 0, 1)
-
 [node name="Level_1" type="Node"]
+script = ExtResource("1_hv3h2")
 
 [node name="background" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -215,40 +212,26 @@ tile_set = SubResource("TileSet_op55a")
 tile_map_data = PackedByteArray("AAAMABgAAAAAAAAAAQAXABUAAAAAAAAAAQAhABcAAAAAAAAAAQAqABcAAAAAAAAAAQA7ABYAAAAAAAAAAQAyABgAAAAAAAAAAQBLABcAAAAAAAAAAQBPABAAAAAAAAAAAQBhABAAAAAAAAAAAQBsABcAAAAAAAAAAQB3ABYAAAAAAAAAAQA=")
 tile_set = SubResource("TileSet_qlosg")
 
+[node name="TopLeftBoundary" type="Node2D" parent="."]
+
+[node name="BottomRightBoundary" type="Node2D" parent="."]
+position = Vector2(3840, 1024)
+
 [node name="knight" parent="." instance=ExtResource("2_imsmx")]
 unique_name_in_owner = true
 position = Vector2(181, 826)
 script = ExtResource("3_43ywa")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="time" type="Label" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-label_settings = SubResource("LabelSettings_xwp4t")
-script = ExtResource("4_wuqbc")
-
-[node name="coins" type="Label" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -152.0
-offset_bottom = 69.0
-grow_horizontal = 0
-label_settings = SubResource("LabelSettings_xwp4t")
-script = ExtResource("6_mpid5")
+[node name="CanvasLayer" parent="." instance=ExtResource("5_o4tvb")]
 
 [connection signal="body_entered" from="coins/Area2D" to="coins/Area2D" method="_on_body_entered" flags=6]
-[connection signal="body_entered" from="coins/@Area2D@219212" to="coins/@Area2D@219212" method="_on_body_entered" flags=6]
-[connection signal="body_entered" from="coins/@Area2D@219213" to="coins/@Area2D@219213" method="_on_body_entered" flags=6]
-[connection signal="body_entered" from="coins/@Area2D@219214" to="coins/@Area2D@219214" method="_on_body_entered" flags=6]
-[connection signal="body_entered" from="coins/@Area2D@219215" to="coins/@Area2D@219215" method="_on_body_entered" flags=6]
-[connection signal="body_entered" from="coins/@Area2D@219216" to="coins/@Area2D@219216" method="_on_body_entered" flags=6]
-[connection signal="body_entered" from="coins/@Area2D@219217" to="coins/@Area2D@219217" method="_on_body_entered" flags=6]
-[connection signal="body_entered" from="coins/@Area2D@219218" to="coins/@Area2D@219218" method="_on_body_entered" flags=6]
-[connection signal="body_entered" from="coins/@Area2D@219219" to="coins/@Area2D@219219" method="_on_body_entered" flags=6]
-[connection signal="body_entered" from="coins/@Area2D@219220" to="coins/@Area2D@219220" method="_on_body_entered" flags=6]
-[connection signal="body_entered" from="coins/@Area2D@219221" to="coins/@Area2D@219221" method="_on_body_entered" flags=6]
+[connection signal="body_entered" from="coins/@Area2D@17710" to="coins/@Area2D@17710" method="_on_body_entered" flags=6]
+[connection signal="body_entered" from="coins/@Area2D@17711" to="coins/@Area2D@17711" method="_on_body_entered" flags=6]
+[connection signal="body_entered" from="coins/@Area2D@17712" to="coins/@Area2D@17712" method="_on_body_entered" flags=6]
+[connection signal="body_entered" from="coins/@Area2D@17713" to="coins/@Area2D@17713" method="_on_body_entered" flags=6]
+[connection signal="body_entered" from="coins/@Area2D@17714" to="coins/@Area2D@17714" method="_on_body_entered" flags=6]
+[connection signal="body_entered" from="coins/@Area2D@17715" to="coins/@Area2D@17715" method="_on_body_entered" flags=6]
+[connection signal="body_entered" from="coins/@Area2D@17716" to="coins/@Area2D@17716" method="_on_body_entered" flags=6]
+[connection signal="body_entered" from="coins/@Area2D@17717" to="coins/@Area2D@17717" method="_on_body_entered" flags=6]
+[connection signal="body_entered" from="coins/@Area2D@17718" to="coins/@Area2D@17718" method="_on_body_entered" flags=6]
+[connection signal="body_entered" from="coins/@Area2D@17719" to="coins/@Area2D@17719" method="_on_body_entered" flags=6]

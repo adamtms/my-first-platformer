@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsk6t3wyhojyd"]
+
+[ext_resource type="Script" path="res://scripts/label_time.gd" id="1_3abxp"]
+[ext_resource type="Script" path="res://scripts/label_coins.gd" id="2_x44vb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xwp4t"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="time" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_xwp4t")
+script = ExtResource("1_3abxp")
+
+[node name="coins" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -152.0
+offset_bottom = 69.0
+grow_horizontal = 0
+label_settings = SubResource("LabelSettings_xwp4t")
+script = ExtResource("2_x44vb")

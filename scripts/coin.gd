@@ -1,8 +1,8 @@
 extends Area2D
 
 func _ready() -> void:
-	GameState.max_coins += 1
+	GameState.add_max_coin()
 
 func _on_body_entered(_body: Node2D) -> void:
-	GameState.collected_coins += 1
+	GameState.pick_up_coin()
 	queue_free()
