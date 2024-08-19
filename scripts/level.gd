@@ -9,5 +9,4 @@ func _ready() -> void:
 @onready var background: TileMapLayer = $background
 
 func win():
-	print(background.get_used_rect())
 	print("You won!")

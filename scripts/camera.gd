@@ -2,11 +2,13 @@ extends Camera2D
 
 @onready var camera: Camera2D = $"."
 
-@onready var top_left_boundary: Node2D = $"../../TopLeftBoundary"
-@onready var bottom_right_boundary: Node2D = $"../../BottomRightBoundary"
+@onready var background: TileMapLayer = $"../../background"
 
 func _ready() -> void:
-	camera.limit_bottom = int(bottom_right_boundary.position.y)
-	camera.limit_right = int(bottom_right_boundary.position.x)
-	camera.limit_top = int(top_left_boundary.position.y)
-	camera.limit_left = int(top_left_boundary.position.x)
+	var scale = background.scale
+	var map_limits = background.get_used_rect()
+	var map_cellsize = background.tile_set.tile_size
+	camera.limit_left = map_limits.position.x * map_cellsize.x * scale.x
+	camera.limit_right = map_limits.end.x * map_cellsize.x * scale.x
+	camera.limit_top = map_limits.position.y * map_cellsize.y * scale.y
+	camera.limit_bottom = map_limits.end.y * map_cellsize.y * scale.y
