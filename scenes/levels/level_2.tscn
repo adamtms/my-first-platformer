@@ -1,13 +1,13 @@
-[gd_scene load_steps=10 format=4 uid="uid://c1p7p33isgk15"]
+[gd_scene load_steps=10 format=4 uid="uid://ctu20vv173g3f"]
 
-[ext_resource type="Texture2D" uid="uid://o75qagtnvdmj" path="res://resources/world_tileset.png" id="1_7oijr"]
-[ext_resource type="PackedScene" uid="uid://dv5vtxfrkvsxy" path="res://scenes/knight.tscn" id="2_imsmx"]
-[ext_resource type="Script" path="res://scripts/knight.gd" id="3_43ywa"]
-[ext_resource type="PackedScene" uid="uid://dnlqm7e5jx34c" path="res://scenes/coin.tscn" id="5_5jh0n"]
-[ext_resource type="PackedScene" uid="uid://dsk6t3wyhojyd" path="res://scenes/gameUI.tscn" id="5_o4tvb"]
+[ext_resource type="Texture2D" uid="uid://o75qagtnvdmj" path="res://resources/world_tileset.png" id="1_i7mea"]
+[ext_resource type="PackedScene" uid="uid://dnlqm7e5jx34c" path="res://scenes/coin.tscn" id="2_gupxq"]
+[ext_resource type="PackedScene" uid="uid://dv5vtxfrkvsxy" path="res://scenes/knight.tscn" id="3_aw64q"]
+[ext_resource type="Script" path="res://scripts/knight.gd" id="4_i6631"]
+[ext_resource type="PackedScene" uid="uid://dsk6t3wyhojyd" path="res://scenes/gameUI.tscn" id="5_k784v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tmtjc"]
-texture = ExtResource("1_7oijr")
+texture = ExtResource("1_i7mea")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -184,7 +184,7 @@ sources/0 = SubResource("TileSetAtlasSource_tmtjc")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_rgdhe"]
 resource_name = "coins"
-scenes/1/scene = ExtResource("5_5jh0n")
+scenes/1/scene = ExtResource("2_gupxq")
 
 [sub_resource type="TileSet" id="TileSet_qlosg"]
 tile_size = Vector2i(32, 32)
@@ -210,12 +210,12 @@ tile_set = SubResource("TileSet_op55a")
 tile_map_data = PackedByteArray("AAAMABgAAAAAAAAAAQAXABUAAAAAAAAAAQAhABcAAAAAAAAAAQAqABcAAAAAAAAAAQA7ABYAAAAAAAAAAQAyABgAAAAAAAAAAQBLABcAAAAAAAAAAQBPABAAAAAAAAAAAQBhABAAAAAAAAAAAQBsABcAAAAAAAAAAQB3ABYAAAAAAAAAAQA=")
 tile_set = SubResource("TileSet_qlosg")
 
-[node name="knight" parent="." instance=ExtResource("2_imsmx")]
+[node name="knight" parent="." instance=ExtResource("3_aw64q")]
 unique_name_in_owner = true
 position = Vector2(181, 826)
-script = ExtResource("3_43ywa")
+script = ExtResource("4_i6631")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("5_o4tvb")]
+[node name="CanvasLayer" parent="." instance=ExtResource("5_k784v")]
 
 [connection signal="body_entered" from="coins/Area2D" to="coins/Area2D" method="_on_body_entered" flags=6]
 [connection signal="body_entered" from="coins/@Area2D@17820" to="coins/@Area2D@17820" method="_on_body_entered" flags=6]
